@@ -1,7 +1,6 @@
 <?php
 //Include CONFIG
-
-
+include('config.php');
 //fungsi INSERT
 
 
