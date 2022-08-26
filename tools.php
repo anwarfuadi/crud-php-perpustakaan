@@ -3,12 +3,18 @@
 
 include('config.php');
 //fungsi INSERT
-function insert() {
-    //code to be executed;
+function insert($sql) {
+    global $conn;
+    if ($conn->query($sql)) {
+        echo "insert berhasil";
+        header("location: http://localhost/crud-php-perpustakaan/buku");//baru
+    } else {
+        echo "Error: ";
+    }
   }
 
 //fungsi SELECT
-function selectFunction($sql) {
+function select($sql) {
     global $conn;
     $result = $conn->query($sql);
     return $result;

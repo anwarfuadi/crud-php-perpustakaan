@@ -3,12 +3,10 @@
     <title>Perpustakaan - Master Buku</title>
 </head>
 <body>
-    <?php include('../header.php') ?>
-    <?php include('../tools.php');
-       
-        $sql="SELECT * FROM buku";
-        $hasil=selectFunction($sql);
-       
+    <?php include('../header.php');
+        include('../tools.php');
+        $sql="SELECT * FROM buku, kategori_buku where buku.id_kategori=kategori_buku.id_kategori";
+        $hasil=select($sql);
     ?>
 
     <h3>Master Buku</h3>
@@ -27,17 +25,18 @@
   </thead>
   <tbody>
 
- <?php while($data = $hasil->fetch_assoc()) { ?>
+ <?php $i=1;
+ while($data = $hasil->fetch_assoc()) { ?>
          <tr>
-         <td><?php //echo $i; $i++; ?></th>
+         <td><?php echo $i; $i++; ?></th>
          <td> <?php echo $data['kode_buku'] ?></td>
-         <td> <?php  ?></td>
+         <td> <?php echo $data['kategori_buku'] ?></td>
          <td> <?php  echo $data['nama_buku'] ?></td>
          <td> <?php  echo $data['isbn'] ?></td>
          <td> <?php  echo $data['penerbit'] ?></td>
          <td>
-         <a href="" class="btn btn-warning">Edit</a>|
-          <a href="" class="btn btn-danger">Delete</a> 
+         <a href="formEdit.php" class="btn btn-warning">Edit</a>|
+          <a href="delete" class="btn btn-danger">Delete</a> 
          </td>
     </tr>                                                        <!--baru-->
 <?php } ?>
