@@ -8,9 +8,8 @@ function insert() {
   }
 
 //fungsi SELECT
-function selectFunction() {
+function selectFunction($sql) {
     global $conn;
-    $sql = "SELECT * from buku";
     $result = $conn->query($sql);
     return $result;
     //return "aa";

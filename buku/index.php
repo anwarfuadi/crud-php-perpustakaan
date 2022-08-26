@@ -6,10 +6,8 @@
     <?php include('../header.php') ?>
     <?php include('../tools.php');
        
-      //  $sql="SELECT * FROM buku";
-      
-        $hasil=selectFunction();
-        
+        $sql="SELECT * FROM buku";
+        $hasil=selectFunction($sql);
        
     ?>
 
