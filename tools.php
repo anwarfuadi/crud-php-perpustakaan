@@ -1,5 +1,6 @@
 <?php
 //Include CONFIG
+
 include('config.php');
 //fungsi INSERT
 function insert() {
@@ -7,10 +8,13 @@ function insert() {
   }
 
 //fungsi SELECT
-function select($sql) {
-    $hasil2 = $con->query($sql);
-    return $hasil2;
-}
+function selectFunction() {
+    global $conn;
+    $sql = "SELECT * from buku";
+    $result = $conn->query($sql);
+    return $result;
+    //return "aa";
+ }
 
 //fungsi UPDATE
 function update() {

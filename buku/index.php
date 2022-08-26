@@ -5,8 +5,12 @@
 <body>
     <?php include('../header.php') ?>
     <?php include('../tools.php');
-        $sql="SELECT * FROM buku";
-        $hasil=select($sql);
+       
+      //  $sql="SELECT * FROM buku";
+      
+        $hasil=selectFunction();
+        
+       
     ?>
 
     <h3>Master Buku</h3>
@@ -28,11 +32,11 @@
  <?php while($data = $hasil->fetch_assoc()) { ?>
          <tr>
          <td><?php //echo $i; $i++; ?></th>
-         <td> <?php  $data['kode_buku'] ?></td>
+         <td> <?php echo $data['kode_buku'] ?></td>
          <td> <?php  ?></td>
-         <td> <?php  $data['nama_buku'] ?></td>
-         <td> <?php  $data['isbn'] ?></td>
-         <td> <?php  $data['penerbit'] ?></td>
+         <td> <?php  echo $data['nama_buku'] ?></td>
+         <td> <?php  echo $data['isbn'] ?></td>
+         <td> <?php  echo $data['penerbit'] ?></td>
          <td>
          <a href="" class="btn btn-warning">Edit</a>|
           <a href="" class="btn btn-danger">Delete</a> 
