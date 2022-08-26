@@ -1,10 +1,13 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "perpustakaan");
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$db   = 'perpustakaan';
 
-if ($conn->connect_errno) {
+$conn = mysqli_connect($host, $user, $pass, $db);
 
-    echo die("Failed to connect to MySQL: " . $conn->connect_error);
-
+if (!$conn) {
+    echo 'Error: '.mysql_connect_error($conn);
 }
 
 ?>
