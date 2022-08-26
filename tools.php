@@ -18,7 +18,6 @@ function select($sql) {
     global $conn;
     $result = $conn->query($sql);
     return $result;
-    //return "aa";
  }
 
 //fungsi UPDATE
@@ -51,10 +50,34 @@ function search() {
 //fungsi SORT
 
 //fungsi generate kode buku
-function generateKodeBuku($nama_buku,$kategori_buku_split,$tahun){
+function generateKodeBuku($nama_buku,$id_kategori,$tahun_buku){
     $nama_awal_buku=$nama_buku[0];
-   /* $sql=SELECT max(kode) as kodeTerbesar FROM barang
-    $query = mysqli_query($koneksi, "SELECT max(kode) as kodeTerbesar FROM barang");
-    $data = mysqli_fetch_array($query);
-    $kodeBarang = $data['kodeTerbesar'];*/
+    
+    if($id_kategori<10 && $id_kategori>0){
+        $id_kategori='0'.$id_kategori;
+    }
+    //select buku yang tahunnya tahun yang diinput, jika ada lihat nourut terakhir, jika tidak ada angka baru
+    $sql="SELECT max(kode_buku) as kode FROM buku where tahun_buku=".$tahun_buku;
+    $result=select($sql);
+    $no_urutbuku=0;
+    if ($result->num_rows > 0) {
+        $kode = $result->fetch_assoc();
+        //ambil karakter ke 8 dst
+        $no_urutbuku=substr($kode['kode'],7);
+        $no_urutbuku=str_replace("0","",$no_urutbuku);
+        $no_urutbuku++;
+        if($no_urutbuku<10){
+            $no_urutbuku="000".$no_urutbuku;
+        }else if($no_urutbuku>=10&&$no_urutbuku<100){
+            $no_urutbuku="00".$no_urutbuku;
+        }else if($no_urutbuku>=100&&$no_urutbuku<1000){
+            $no_urutbuku="0".$no_urutbuku;
+        }
+       
+    }else{
+        $no_urutbuku=0001;
+    }
+    $kodebuku=$nama_awal_buku.''.$id_kategori.''.$tahun_buku.''.$no_urutbuku;
+    echo $kodebuku;
+    return $kodebuku;
 }

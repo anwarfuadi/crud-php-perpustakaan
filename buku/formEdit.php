@@ -17,7 +17,7 @@
     <form action="edit.php" method="post">
     <input type="hidden" value="<?php echo $id_buku; ?>" name="id_buku"/>
     <label>Kode Buku</label>
-    <input type="text" value="<?php echo $data['kode_buku']; ?>" name="kode_buku" required><br>
+    <input type="text" value="<?php echo $data['kode_buku']; ?>" name="kode_buku" required disabled><br>
     <label>Kategori Buku</label>
     <select name="id_kategori">
     <?php 
@@ -36,7 +36,7 @@
     <label>Penerbit</label>
     <input type="text" value="<?php echo $data['penerbit']; ?>" name="penerbit" required><br>
     <label>Tahun</label>
-    <input type="text" value="<?php echo $data['tahun']; ?>" name="tahun" required><br>
+    <input type="text" value="<?php echo $data['tahun_buku']; ?>" name="tahun_buku" required><br>
     <button type="submit">Submit</button>
     </form>
 </body>

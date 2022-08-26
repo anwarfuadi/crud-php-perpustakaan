@@ -35,7 +35,7 @@
          <td> <?php  echo $data['nama_buku'] ?></td>
          <td> <?php  echo $data['isbn'] ?></td>
          <td> <?php  echo $data['penerbit'] ?></td>
-         <td> <?php  echo $data['tahun'] ?></td>
+         <td> <?php  echo $data['tahun_buku'] ?></td>
         <form action="formEdit.php" method="post" >
         <td><input type="hidden" value="<?php echo $data['id_buku']; ?>" name="id_buku"><button type="submit">Edit</button></form></td>
          <form action="delete.php" method="post" >
