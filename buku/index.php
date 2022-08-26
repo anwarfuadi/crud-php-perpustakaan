@@ -20,7 +20,8 @@
       <th>Nama Buku</th>
       <th>ISBN</th>
       <th>Penerbit</th>
-      <th>Aksi</th>
+      <th>Tahun</th>
+      <th colspan="2">Aksi</th>
     </tr>
   </thead>
   <tbody>
@@ -34,11 +35,13 @@
          <td> <?php  echo $data['nama_buku'] ?></td>
          <td> <?php  echo $data['isbn'] ?></td>
          <td> <?php  echo $data['penerbit'] ?></td>
-         <td>
-         <a href="formEdit.php" class="btn btn-warning">Edit</a>|
-          <a href="delete" class="btn btn-danger">Delete</a> 
+         <td> <?php  echo $data['tahun'] ?></td>
+        <form action="formEdit.php" method="post" >
+        <td><input type="hidden" value="<?php echo $data['id_buku']; ?>" name="id_buku"><button type="submit">Edit</button></form></td>
+         <form action="delete.php" method="post" >
+         <td><input type="hidden" value="<?php echo $data['id_buku']; ?>" name="id_buku"><button type="submit">Delete</button></form>
          </td>
-    </tr>                                                        <!--baru-->
+    </tr>                                                       
 <?php } ?>
   </tbody>
 </table>

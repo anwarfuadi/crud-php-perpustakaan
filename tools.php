@@ -9,7 +9,7 @@ function insert($sql) {
         echo "insert berhasil";
         header("location: http://localhost/crud-php-perpustakaan/buku");//baru
     } else {
-        echo "Error: ";
+        echo "Insert Error ";
     }
   }
 
@@ -22,14 +22,26 @@ function select($sql) {
  }
 
 //fungsi UPDATE
-function update() {
-   // code to be executed;
-  }
+function update($sql) {
+    global $conn;
+    if ($conn->query($sql)) {
+        echo "update berhasil";
+        header("location: http://localhost/crud-php-perpustakaan/buku");
+    } else {
+        echo "Update error";
+    }
+}
 
 //fungsi DELETE
-function delete() {
-    //code to be executed;
-  }
+function delete($sql) {
+    global $conn;
+    if($conn->query($sql)){
+        echo "delete berhasil";
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }else{
+        echo "Delete Error";
+    }
+}
 
 //fungsi SEARCH
 function search() {
@@ -37,3 +49,12 @@ function search() {
   }
 
 //fungsi SORT
+
+//fungsi generate kode buku
+function generateKodeBuku($nama_buku,$kategori_buku_split,$tahun){
+    $nama_awal_buku=$nama_buku[0];
+   /* $sql=SELECT max(kode) as kodeTerbesar FROM barang
+    $query = mysqli_query($koneksi, "SELECT max(kode) as kodeTerbesar FROM barang");
+    $data = mysqli_fetch_array($query);
+    $kodeBarang = $data['kodeTerbesar'];*/
+}

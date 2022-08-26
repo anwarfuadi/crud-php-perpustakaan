@@ -10,7 +10,7 @@
     <form action="add.php" method="post">
    
     <label>Kode Buku</label>
-    <input type="text" name="kode_buku"><br>
+    <input type="text" name="kode_buku" required><br>
     <label>Kategori Buku</label>
     <select name="id_kategori" id="id_kategori">
     <?php 
@@ -18,16 +18,19 @@
      $hasil=select($sql);
      
     while($kategori = $hasil->fetch_assoc()) { ?>
-    <option value="<?php echo $kategori['id_kategori']; ?>  "><?php echo $kategori['kategori_buku']; ?>  </option>
+    <option value="<?php echo $kategori['id_kategori']; ?>"><?php echo $kategori['kategori_buku']; ?>  </option>
+   
     <?php } ?> 
   </select><br>
     <label>Judul</label>
-    <input type="text" name="nama_buku"><br>
+    <input type="text" name="nama_buku" required><br>
     <label>isbn</label>
-    <input type="text" name="isbn"><br>
+    <input type="text" name="isbn" required><br>
     <label>penerbit</label>
-    <input type="text" name="penerbit"><br>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <input type="text" name="penerbit" required><br>
+    <label>tahun</label>
+    <input type="text" name="tahun" required><br>
+    <button type="submit">Submit</button>
     </form>
 </body>
 </html>
