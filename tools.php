@@ -7,9 +7,10 @@ function insert() {
   }
 
 //fungsi SELECT
-function select() {
-   // code to be executed;
-  }
+function select($sql) {
+    $hasil2 = $con->query($sql);
+    return $hasil2;
+}
 
 //fungsi UPDATE
 function update() {
@@ -27,5 +28,3 @@ function search() {
   }
 
 //fungsi SORT
-
-$con->close();
