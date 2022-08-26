@@ -1,3 +1,3 @@
-<a href="/perpustakaan">Beranda</a> ||
-<a href="/perpustakaan/kategori">Kategori Buku</a> ||
-<a href="/perpustakaan/buku">Buku</a>
+<a href="/crud-php-perpustakaan">Beranda</a> ||
+<a href="/crud-php-perpustakaan/kategori">Kategori Buku</a> ||
+<a href="/crud-php-perpustakaan/buku">Buku</a>
