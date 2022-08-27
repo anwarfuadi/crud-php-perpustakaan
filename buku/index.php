@@ -21,7 +21,7 @@
       <th>ISBN</th>
       <th>Penerbit</th>
       <th>Tahun</th>
-      <th colspan="2">Aksi</th>
+      <th colspan="3">Aksi</th>
     </tr>
   </thead>
   <tbody>
@@ -41,6 +41,8 @@
          <form action="delete.php" method="post" >
          <td><input type="hidden" value="<?php echo $data['id_buku']; ?>" name="id_buku"><button type="submit">Delete</button></form>
          </td>
+         <td>
+         <a href="viewDetail.php?id_buku=<?php echo $data['id_buku']; ?>">Detail</a> </td>
     </tr>                                                       
 <?php } ?>
   </tbody>
