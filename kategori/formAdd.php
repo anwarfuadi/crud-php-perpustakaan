@@ -9,9 +9,6 @@
 <h3>Tambah Data Master Kategori Buku</h3>
 <form action="add.php" method="post">
 
-<label>Kode</label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" name="kode" required><br>
 <label>Kategori Buku</label>
 &nbsp;&nbsp;<input type="text" name="kategori" required><br>
 <button type="submit">Submit</button>
