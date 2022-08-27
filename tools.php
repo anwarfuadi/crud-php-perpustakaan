@@ -3,11 +3,11 @@
 
 include('config.php');
 //fungsi INSERT
-function insert($sql) {
+function insert($sql,$location) {
     global $conn;
     if ($conn->query($sql)) {
         echo "insert berhasil";
-        header("location: http://localhost/crud-php-perpustakaan/buku");//baru
+        header("location: http://localhost/crud-php-perpustakaan/".$location);//baru
     } else {
         echo "Insert Error ";
     }
@@ -31,11 +31,11 @@ function select($sql) {
  }
 
 //fungsi UPDATE
-function update($sql) {
+function update($sql,$location) {
     global $conn;
     if ($conn->query($sql)) {
         echo "update berhasil";
-        header("location: http://localhost/crud-php-perpustakaan/buku");
+        header("location: http://localhost/crud-php-perpustakaan/".$location);
     } else {
         echo "Update error";
     }

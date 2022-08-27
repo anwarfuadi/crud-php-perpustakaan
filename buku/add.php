@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO buku(id_kategori,kode_buku,nama_buku,isbn,penerbit,tahun_buku) 
     VALUES ('$id_kategori','$kode_buku','$nama_buku','$isbn','$penerbit','$tahun_buku')";
     
-    insert($sql);
+    insert($sql,"buku");
 }
 
 ?>
