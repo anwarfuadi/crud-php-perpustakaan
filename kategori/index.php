@@ -30,9 +30,9 @@ $no = 1;
                 <td>&nbsp;<?php echo $no; ?>&nbsp;</td>
                 <td align="center">&nbsp;<?php echo $data['kode_kategori']; ?>&nbsp;</td>
                 <td align="center">&nbsp;<?php echo $data['kategori_buku']; ?>&nbsp;</td>
-            <form action="formEdit.php" method="post" >
+                <form action="formEdit.php" method="post" >
                 <td><input type="hidden" value="<?php echo $data['id_kategori']; ?>" name="id_kategori"><button type="submit">Edit</button></form></td>
-            <form action="delete.php" method="post" >
+                <form action="delete.php" method="post" >
                 <td><input type="hidden" value="<?php echo $data['id_kategori']; ?>" name="id_kategori"><button type="submit">Delete</button></form>
                 </td>
             </tr>

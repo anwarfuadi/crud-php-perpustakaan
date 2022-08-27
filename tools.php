@@ -30,15 +30,6 @@ function update($sql,$location) {
         echo "Update error";
     }
 }
-function updatekategori($sql) {
-    global $conn;
-    if ($conn->query($sql)) {
-        echo "update berhasil";
-        //header("location: http://localhost/crud-php-perpustakaan/kategori");
-    } else {
-        echo "Update error";
-    }
-}
 
 //fungsi DELETE
 function delete($sql) {

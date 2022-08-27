@@ -3,27 +3,26 @@
     <title>Perpustakaan - Master Kategori</title>
 </head>
 <body>
-<?php   include '../header.php';
-        include '../tools.php';
-        
-$id_kategori = $_POST['id_kategori'];
+    <?php include('../header.php');
+          include('../tools.php');
 
-$sql_kategori = "select * from kategori_buku where id_kategori='$id_kategori'";
+          $id_kategori=$_POST['id_kategori'];
+          $sql_kategori="select * from kategori_buku where id_kategori='$id_kategori'";
+          $hasil_kategori=select($sql_kategori);
+          $data=$hasil_kategori->fetch_assoc();
+          ?>
 
-$hasil_kategori = select($sql_kategori);
-$data = $hasil_kategori->fetch_assoc();
-
-?>
-
-    <h3>Edit Data Master Kategori Buku</h3>
+    <h3>Edit Data Master Buku</h3>
     <form action="edit.php" method="post">
-    <label>Id kategori</label>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="number" value="<?php echo $id_kategori; ?>" name="id_kategori" disabled><br>
+    <label>Id Kategori</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" value="<?php echo $data['id_kategori']; ?>" name="id_kategori" required disabled><br>
     <label>Kode Kategori</label>
-    <input type="text" value="<?php echo $data['kode_kategori']; ?>" name="kode" disabled><br>
+    &nbsp;&nbsp;
+    <input type="text" value="<?php echo $data['kode_kategori']; ?>" name="kode_kategori" required disabled><br>
     <label>Kategori Buku</label>
-    <input type="text" value="<?php echo $data['kategori_buku']; ?>" name="kategori" required><br>
+    &nbsp;&nbsp;
+    <input type="text" value="<?php echo $data['kategori_buku']; ?>" name="kategori_buku" required><br>
     <button type="submit">Submit</button>
     </form>
 </body>
