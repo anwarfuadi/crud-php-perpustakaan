@@ -12,6 +12,16 @@ function insert($sql) {
         echo "Insert Error ";
     }
   }
+  function insertkategori($sql) {
+    global $conn;
+    if ($conn->query($sql)) {
+        echo "insert berhasil";
+        header("location: http://localhost/crud-php-perpustakaan/kategori");//baru
+    } else {
+        echo "Insert Error ";
+    }
+  }
+
 
 //fungsi SELECT
 function select($sql) {
@@ -26,6 +36,15 @@ function update($sql) {
     if ($conn->query($sql)) {
         echo "update berhasil";
         header("location: http://localhost/crud-php-perpustakaan/buku");
+    } else {
+        echo "Update error";
+    }
+}
+function updatekategori($sql) {
+    global $conn;
+    if ($conn->query($sql)) {
+        echo "update berhasil";
+        //header("location: http://localhost/crud-php-perpustakaan/kategori");
     } else {
         echo "Update error";
     }
