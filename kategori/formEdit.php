@@ -21,7 +21,7 @@ $data = $hasil_kategori->fetch_assoc();
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="number" value="<?php echo $id_kategori; ?>" name="id_kategori" disabled><br>
     <label>Kode Kategori</label>
-    <input type="text" value="<?php echo $data['kode_kategori']; ?>" name="kode" required><br>
+    <input type="text" value="<?php echo $data['kode_kategori']; ?>" name="kode" disabled><br>
     <label>Kategori Buku</label>
     <input type="text" value="<?php echo $data['kategori_buku']; ?>" name="kategori" required><br>
     <button type="submit">Submit</button>

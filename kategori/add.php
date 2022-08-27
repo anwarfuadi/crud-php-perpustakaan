@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql2 = "INSERT INTO kategori_buku(kode_kategori,kategori_buku) VALUES ('$nourutfinal3','$kategori')";
     
-    insertkategori($sql2);
+    insert($sql2,"kategori");
 }
 
 ?>

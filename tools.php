@@ -12,16 +12,6 @@ function insert($sql,$location) {
         echo "Insert Error ";
     }
   }
-  function insertkategori($sql) {
-    global $conn;
-    if ($conn->query($sql)) {
-        echo "insert berhasil";
-        header("location: http://localhost/crud-php-perpustakaan/kategori");//baru
-    } else {
-        echo "Insert Error ";
-    }
-  }
-
 
 //fungsi SELECT
 function select($sql) {
