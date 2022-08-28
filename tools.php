@@ -54,51 +54,39 @@ function search() {
 function generateKodeKategori($kategori){
     $hurufdepan = substr($kategori,0,1);    
     $hurufdepanbesar = strtoupper($hurufdepan);
-    //echo $hurufdepanbesar;
-    $sql1 = "SELECT * FROM kategori_buku WHERE kategori_buku LIKE '$hurufdepanbesar%'";
-    $hasil1 = select($sql1);
-    $nourut =1;
-    while($data=mysqli_fetch_array($hasil1)){
-        $nourut++;
-    }
-    //echo $nourut;
-    $nourutfinal1= "00000".$nourut;
-    $nourutfinal2=substr($nourutfinal1,-3);
-    $nourutfinal3=$hurufdepanbesar."".$nourutfinal2; 
-    
-    return $nourutfinal3;
-    // echo $nourutfinal3;
+
+    $sql = "SELECT count(*) as jml FROM kategori_buku WHERE kategori_buku LIKE '$hurufdepanbesar%'";
+    $result = select($sql);
+    $data = $result->fetch_assoc();
+
+    $nourut =$data['jml'];
+    $nourut++;
+
+    $nourut = sprintf('%03d', $nourut);
+    $kodeKategori = $hurufdepanbesar.$nourut;
+
+    return $kodeKategori;
 }
 
 //fungsi generate kode buku
-function generateKodeBuku($nama_buku,$id_kategori,$tahun_buku){
-    $nama_awal_buku=$nama_buku[0];
-    
-    if($id_kategori<10 && $id_kategori>0){
-        $id_kategori='0'.$id_kategori;
-    }
-    //select buku yang tahunnya tahun yang diinput, jika ada lihat nourut terakhir, jika tidak ada angka baru
-    $sql="SELECT max(kode_buku) as kode FROM buku where tahun_buku=".$tahun_buku;
+function generateKodeBuku($nama_buku,$id_kategori){
+    $nama_awal_buku = strtoupper($nama_buku[0]);
+    $id_kategori = sprintf('%02d',$id_kategori);
+
+    $tahun = date("Y");
+    $sql="SELECT kode_buku FROM buku where kode_buku like '___$tahun%' ORDER BY id_buku DESC LIMIT 1";
     $result=select($sql);
-    $no_urutbuku=0;
-    if ($result->num_rows > 0) {
+    if ($result) {
         $kode = $result->fetch_assoc();
-        //ambil karakter ke 8 dst
-        $no_urutbuku=substr($kode['kode'],7);
-        $no_urutbuku=str_replace("0","",$no_urutbuku);
+
+        $no_urutbuku = (int)substr($kode['kode_buku'],7);
         $no_urutbuku++;
-        if($no_urutbuku<10){
-            $no_urutbuku="000".$no_urutbuku;
-        }else if($no_urutbuku>=10&&$no_urutbuku<100){
-            $no_urutbuku="00".$no_urutbuku;
-        }else if($no_urutbuku>=100&&$no_urutbuku<1000){
-            $no_urutbuku="0".$no_urutbuku;
-        }
-       
     }else{
-        $no_urutbuku=0001;
+        $no_urutbuku=1;
     }
-    $kodebuku=$nama_awal_buku.''.$id_kategori.''.$tahun_buku.''.$no_urutbuku;
-    echo $kodebuku;
+    $no_urutbuku = sprintf('%04d',$no_urutbuku);
+
+    $kodebuku=$nama_awal_buku.$id_kategori.$tahun.$no_urutbuku;
+
     return $kodebuku;
 }

@@ -24,7 +24,7 @@
                 <?php
                 $awal = microtime(true);
 
-                $sql="SELECT k.*, COUNT(*) as jmlbuku FROM kategori_buku k INNER JOIN buku b ON k.id_kategori=b.id_kategori GROUP BY k.id_kategori;";
+                $sql="SELECT k.*, COUNT(b.id_buku) as jmlbuku FROM kategori_buku k LEFT JOIN buku b ON k.id_kategori=b.id_kategori GROUP BY k.id_kategori;";
                 $hasil=select($sql);
 
                 $no = 1;
