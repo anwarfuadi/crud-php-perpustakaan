@@ -21,12 +21,16 @@
   </select><br>
     <label>Judul</label>
     <input type="text" name="nama_buku" required><br>
-    <label>isbn</label>
+    <label>ISBN</label>
     <input type="text" name="isbn" required><br>
-    <label>penerbit</label>
+    <label>Penerbit</label>
     <input type="text" name="penerbit" required><br>
-    <label>tahun</label>
+    <label>Tahun</label>
     <input type="number" name="tahun_buku" required><br>
+    <label>Penulis</label>
+    <input type="text" name="penulis" required><br>
+    <label>Lokasi Buku</label>
+    <input type="text" name="lokasi_buku" required><br>
     <button type="submit">Submit</button>
     </form>
 </body>
