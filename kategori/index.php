@@ -20,6 +20,9 @@
         <tbody>
         <?php
 
+
+$awal = microtime(true);
+
 $sql="SELECT * FROM kategori_buku";
 $hasil=select($sql);
 
@@ -39,9 +42,16 @@ $no = 1;
         <?php
         $no++;
     }
+
 ?>
     </tbody>
 </table>
+<?php 
 
+$akhir = microtime(true);
+$lama = $akhir - $awal;
+echo "<br>Time Execution : ".$lama." microsecond";
+
+?>
 </body>
 </html>
