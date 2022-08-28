@@ -1,13 +1,13 @@
 <?php
 //Include CONFIG
-
 include('config.php');
+
 //fungsi INSERT
 function insert($sql,$location) {
     global $conn;
     if ($conn->query($sql)) {
         echo "insert berhasil";
-        header("location: http://localhost/crud-php-perpustakaan/".$location);//baru
+        header("location: http://localhost/crud-php-perpustakaan/".$location);
     } else {
         echo "Insert Error ";
     }
@@ -45,7 +45,7 @@ function delete($sql) {
 //fungsi SEARCH
 function search() {
     //code to be executed;
-  }
+}
 
 //fungsi SORT
 
