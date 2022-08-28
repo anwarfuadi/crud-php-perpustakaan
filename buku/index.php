@@ -3,14 +3,28 @@
     <title>Perpustakaan - Master Buku</title>
 </head>
 <body>
-    <?php include('../header.php');
+    <?php
+        include('../header.php');
         include('../tools.php');
-        $sql="SELECT * FROM buku, kategori_buku where buku.id_kategori=kategori_buku.id_kategori";
+
+        if(isset($_GET["cari"])){
+            $cari = $_GET["cari"];
+            $sql="SELECT * FROM buku, kategori_buku where buku.id_kategori=kategori_buku.id_kategori and buku.nama_buku like '%$cari%'";
+        }else{
+            $sql="SELECT * FROM buku, kategori_buku where buku.id_kategori=kategori_buku.id_kategori";
+        }
+
         $hasil=select($sql);
     ?>
 
     <h3>Master Buku</h3>
+
+    <form action="index.php" method="GET">
+        <input type="text" name="cari">
+        <button type="submit">Cari Judul Buku</button>
+    </form>
     <a href="formAdd.php">Tambah</a>
+
     <table border="1">
   <thead>
     <tr>
