@@ -67,6 +67,25 @@ function search() {
 }
 
 //fungsi SORT
+//fungsi generate kode kategori
+function generateKodeKategori($kategori){
+    $hurufdepan = substr($kategori,0,1);    
+    $hurufdepanbesar = strtoupper($hurufdepan);
+    //echo $hurufdepanbesar;
+    $sql1 = "SELECT * FROM kategori_buku WHERE kategori_buku LIKE '$hurufdepanbesar%'";
+    $hasil1 = select($sql1);
+    $nourut =1;
+    while($data=mysqli_fetch_array($hasil1)){
+        $nourut++;
+    }
+    //echo $nourut;
+    $nourutfinal1= "00000".$nourut;
+    $nourutfinal2=substr($nourutfinal1,-3);
+    $nourutfinal3=$hurufdepanbesar."".$nourutfinal2; 
+    
+    return $nourutfinal3;
+    // echo $nourutfinal3;
+}
 
 //fungsi generate kode buku
 function generateKodeBuku($nama_buku,$id_kategori,$tahun_buku){
