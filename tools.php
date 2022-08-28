@@ -42,14 +42,6 @@ function delete($sql) {
     }
 }
 
-//fungsi SEARCH
-function search() {
-    //code to be executed;
-}
-
-//fungsi SORT
-
-
 //fungsi generate kode kategori
 function generateKodeKategori($kategori){
     $hurufdepan = substr($kategori,0,1);    
