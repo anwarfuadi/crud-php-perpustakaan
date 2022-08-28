@@ -7,3 +7,4 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $sql="update kategori_buku set kode_kategori='$kode_kategori', kategori_buku='$kategori_buku' where id_kategori='$id_kategori'";
     update($sql,"kategori");
 }
+?>

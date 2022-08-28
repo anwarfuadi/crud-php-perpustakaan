@@ -12,14 +12,13 @@
           $data=$hasil_kategori->fetch_assoc();
           ?>
 
-    <h3>Edit Data Master Buku</h3>
+    <h3>Edit Data Master Kategori Buku</h3>
     <form action="edit.php" method="post">
-    <label>Id Kategori</label>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" value="<?php echo $data['id_kategori']; ?>" name="id_kategori" required disabled><br>
+    <input type="hidden" value="<?php echo $id_kategori; ?>" name="id_kategori"/>
+    <input type="hidden" value="<?php echo $data['kode_kategori']; ?>" name="kode_kategori"/>
     <label>Kode Kategori</label>
     &nbsp;&nbsp;
-    <input type="text" value="<?php echo $data['kode_kategori']; ?>" name="kode_kategori" required disabled><br>
+    <input type="text" value="<?php echo $data['kode_kategori']; ?>" name="#" disabled><br>
     <label>Kategori Buku</label>
     &nbsp;&nbsp;
     <input type="text" value="<?php echo $data['kategori_buku']; ?>" name="kategori_buku" required><br>
