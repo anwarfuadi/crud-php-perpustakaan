@@ -17,7 +17,7 @@
     <form action="edit.php" method="post">
     <input type="hidden" value="<?php echo $id_buku; ?>" name="id_buku"/>
     <label>Kode Buku</label>
-    <input type="text" value="<?php echo $data['kode_buku']; ?>" name="kode_buku" required disabled><br>
+    <input type="text" value="<?php echo $data['kode_buku']; ?>" name="kode_buku" readonly ><br>
     <label>Kategori Buku</label>
     <select name="id_kategori">
     <?php 
