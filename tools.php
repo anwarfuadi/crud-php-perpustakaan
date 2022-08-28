@@ -12,6 +12,16 @@ function insert($sql,$location) {
         echo "Insert Error ";
     }
   }
+  function insertkategori($sql) {
+    global $conn;
+    if ($conn->query($sql)) {
+        echo "insert berhasil";
+        header("location: http://localhost/crud-php-perpustakaan/kategori");//baru
+    } else {
+        echo "Insert Error ";
+    }
+  }
+
 
 //fungsi SELECT
 function select($sql) {
@@ -26,6 +36,15 @@ function update($sql,$location) {
     if ($conn->query($sql)) {
         echo "update berhasil";
         header("location: http://localhost/crud-php-perpustakaan/".$location);
+    } else {
+        echo "Update error";
+    }
+}
+function updatekategori($sql) {
+    global $conn;
+    if ($conn->query($sql)) {
+        echo "update berhasil";
+        //header("location: http://localhost/crud-php-perpustakaan/kategori");
     } else {
         echo "Update error";
     }
@@ -49,56 +68,28 @@ function search() {
 
 //fungsi SORT
 
-
-//fungsi generate kode kategori
-function generateKodeKategori($kategori){
-    $hurufdepan = substr($kategori,0,1);    
-    $hurufdepanbesar = strtoupper($hurufdepan);
-    //echo $hurufdepanbesar;
-    $sql1 = "SELECT * FROM kategori_buku WHERE kategori_buku LIKE '$hurufdepanbesar%'";
-    $hasil1 = select($sql1);
-    $nourut =1;
-    while($data=mysqli_fetch_array($hasil1)){
-        $nourut++;
-    }
-    //echo $nourut;
-    $nourutfinal1= "00000".$nourut;
-    $nourutfinal2=substr($nourutfinal1,-3);
-    $nourutfinal3=$hurufdepanbesar."".$nourutfinal2; 
-    
-    return $nourutfinal3;
-    // echo $nourutfinal3;
-}
-
 //fungsi generate kode buku
 function generateKodeBuku($nama_buku,$id_kategori,$tahun_buku){
     $nama_awal_buku=$nama_buku[0];
-    
-    if($id_kategori<10 && $id_kategori>0){
-        $id_kategori='0'.$id_kategori;
-    }
+    $id_kategori="0".$id_kategori;
+    $id_kategori=substr($id_kategori,-2);
     //select buku yang tahunnya tahun yang diinput, jika ada lihat nourut terakhir, jika tidak ada angka baru
-    $sql="SELECT max(kode_buku) as kode FROM buku where tahun_buku=".$tahun_buku;
+    $sql="SELECT kode_buku FROM buku where id_buku=(SELECT max(id_buku) from buku where tahun_buku='$tahun_buku')";
     $result=select($sql);
     $no_urutbuku=0;
     if ($result->num_rows > 0) {
         $kode = $result->fetch_assoc();
         //ambil karakter ke 8 dst
-        $no_urutbuku=substr($kode['kode'],7);
+        $no_urutbuku=substr($kode['kode_buku'],7);
         $no_urutbuku=str_replace("0","",$no_urutbuku);
         $no_urutbuku++;
-        if($no_urutbuku<10){
-            $no_urutbuku="000".$no_urutbuku;
-        }else if($no_urutbuku>=10&&$no_urutbuku<100){
-            $no_urutbuku="00".$no_urutbuku;
-        }else if($no_urutbuku>=100&&$no_urutbuku<1000){
-            $no_urutbuku="0".$no_urutbuku;
-        }
+        $no_urutbuku="000".$no_urutbuku;
+        $no_urutbuku=substr($no_urutbuku,-4);
        
     }else{
-        $no_urutbuku=0001;
+        
+        $no_urutbuku="0001";
     }
     $kodebuku=$nama_awal_buku.''.$id_kategori.''.$tahun_buku.''.$no_urutbuku;
-    echo $kodebuku;
     return $kodebuku;
 }
