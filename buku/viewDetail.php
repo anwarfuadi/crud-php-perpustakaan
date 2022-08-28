@@ -26,8 +26,6 @@
     <?php echo $data['penulis']; ?><br/>
     Lokasi Buku:
     <?php echo $data['lokasi_buku']; ?><br/>
-    Tahun : 
-    <?php echo $data['tahun_buku']; ?><br/>
-   
+
 </body>
 </html>

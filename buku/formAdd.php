@@ -25,8 +25,6 @@
     <input type="text" name="isbn" required><br>
     <label>Penerbit</label>
     <input type="text" name="penerbit" required><br>
-    <label>Tahun</label>
-    <input type="number" name="tahun_buku" required><br>
     <label>Penulis</label>
     <input type="text" name="penulis" required><br>
     <label>Lokasi Buku</label>

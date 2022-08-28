@@ -7,11 +7,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $penerbit=$_POST["penerbit"];
     $penulis=$_POST["penulis"];
     $lokasi_buku=$_POST["lokasi_buku"];
-    $tahun_buku=$_POST["tahun_buku"];
     $kode_buku=generateKodeBuku($nama_buku,$id_kategori);
     
-    $sql = "INSERT INTO buku(id_kategori,kode_buku,nama_buku,isbn,penerbit,penulis,lokasi_buku,tahun_buku) 
-    VALUES ('$id_kategori','$kode_buku','$nama_buku','$isbn','$penerbit','$penulis','$lokasi_buku','$tahun_buku')";
+    $sql = "INSERT INTO buku(id_kategori,kode_buku,nama_buku,isbn,penerbit,penulis,lokasi_buku) 
+    VALUES ('$id_kategori','$kode_buku','$nama_buku','$isbn','$penerbit','$penulis','$lokasi_buku')";
     
     insert($sql,"buku");
 }

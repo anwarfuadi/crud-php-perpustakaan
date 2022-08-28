@@ -35,8 +35,10 @@
     <input type="text" value="<?php echo $data['isbn']; ?>" name="isbn" required><br>
     <label>Penerbit</label>
     <input type="text" value="<?php echo $data['penerbit']; ?>" name="penerbit" required><br>
-    <label>Tahun</label>
-    <input type="text" value="<?php echo $data['tahun_buku']; ?>" name="tahun_buku" required><br>
+    <label>Penulis</label>
+    <input type="text" value="<?php echo $data['penulis']; ?>" name="penulis" required><br>
+    <label>Lokasi Buku</label>
+    <input type="text" value="<?php echo $data['lokasi_buku']; ?>" name="lokasi_buku" required><br>
     <button type="submit">Submit</button>
     </form>
 </body>
